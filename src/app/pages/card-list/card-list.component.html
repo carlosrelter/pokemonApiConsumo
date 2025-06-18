@@ -1,0 +1,23 @@
+ <mat-grid-list [cols]="cols" rowHeight="250px" gutterSize="16px">
+   @for(pokemon of pokemons; track pokemon){
+    <mat-grid-tile>
+      <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+          <mat-card-title>{{pokemon.name}}</mat-card-title>
+          <mat-card-subtitle>{{pokemon.types[0].type.name}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <img mat-card-image [src]="pokemon.sprites.front_default" alt="pokemon">
+        </mat-card-content>
+        <mat-card-actions  align="end">
+          <div class="actions">
+            <button mat-fab ><mat-icon>favorite</mat-icon></button>
+          </div>
+          <button mat-fab ><mat-icon>visibility</mat-icon></button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+   }
+ </mat-grid-list>
+
+
