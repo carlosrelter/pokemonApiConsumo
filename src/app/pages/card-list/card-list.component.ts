@@ -41,8 +41,8 @@ export class CardListComponent {
       localStorage.setItem('likedPokemons', JSON.stringify(likes));
     }  else if(likes.includes(pokemonId)){
       let index = likes.indexOf(pokemonId);
-      console.log(index);
       likes.splice(index, 1);
+      localStorage.setItem('likedPokemons', JSON.stringify(likes));
     }
   }
 
