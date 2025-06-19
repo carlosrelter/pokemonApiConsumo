@@ -7,11 +7,17 @@
           <mat-card-subtitle>{{pokemon.types[0].type.name}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          <img mat-card-image [src]="pokemon.sprites.front_default" alt="pokemon">
+          <img mat-card-image [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + pokemon.id + '.png'" alt={{pokemon.name}}>
         </mat-card-content>
         <mat-card-actions  align="end">
           <div class="actions">
-            <button mat-fab ><mat-icon>favorite</mat-icon></button>
+            <button mat-fab (click)="like(pokemon.id)" >
+              @if(isLiked(pokemon.id) ==true){
+                <mat-icon class="like">favorite</mat-icon>
+              }@else {
+                <mat-icon class="normal">favorite</mat-icon>
+              }
+              </button>
           </div>
           <button mat-fab ><mat-icon>visibility</mat-icon></button>
         </mat-card-actions>

@@ -6,3 +6,11 @@
 .actions{
   padding-right: 8px;
 }
+
+.like{
+  color: red;
+}
+
+.normal{
+  color: gray;
+}

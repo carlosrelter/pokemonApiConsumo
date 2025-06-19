@@ -33,8 +33,22 @@ export class CardListComponent {
     this.getListPokemons();
   }
 
-  teste(){
+  like(pokemonId: number){
+    const likes = JSON.parse(localStorage.getItem('likedPokemons')||'[]');
 
+    if(!likes.includes(pokemonId)){
+      likes.push(pokemonId);
+      localStorage.setItem('likedPokemons', JSON.stringify(likes));
+    }  else if(likes.includes(pokemonId)){
+      let index = likes.indexOf(pokemonId);
+      console.log(index);
+      likes.splice(index, 1);
+    }
+  }
+
+  isLiked(pokemonId:number):boolean{
+    const likes = JSON.parse(localStorage.getItem('likedPokemons')||'[]');
+    return likes.includes(pokemonId);
   }
 
   getListPokemons(){
