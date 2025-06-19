@@ -11,11 +11,12 @@ export class PokemonService {
 
   constructor(private http: HttpClient) { }
 
-  public getPokemon(){
+  public getPokemons(){
     return this.http.get(this.baseURL);
   }
 
   public getDetalhes(name: string){
     return this.http.get(`${this.baseURL}/${name}`)
   }
+
 }

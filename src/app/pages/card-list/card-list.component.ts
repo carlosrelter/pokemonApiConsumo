@@ -5,6 +5,7 @@ import { PokemonService } from '../../service/pokemon-service.service';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { LayoutModule, BreakpointObserver } from '@angular/cdk/layout';
 import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-list',
@@ -21,7 +22,8 @@ export class CardListComponent {
 
   constructor(
     private service: PokemonService,
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private route: Router,
   ){
     this.breakpointObserver.observe(['(max-width: 768px)'])
       .subscribe(result => {
@@ -33,6 +35,10 @@ export class CardListComponent {
     this.getListPokemons();
   }
 
+  detalhe(name:string){
+    this.route.navigate([`/detalhes/${name}`]);
+  }
+
   like(pokemonId: number){
     const likes = JSON.parse(localStorage.getItem('likedPokemons')||'[]');
 
@@ -41,8 +47,8 @@ export class CardListComponent {
       localStorage.setItem('likedPokemons', JSON.stringify(likes));
     }  else if(likes.includes(pokemonId)){
       let index = likes.indexOf(pokemonId);
+      console.log(index);
       likes.splice(index, 1);
-      localStorage.setItem('likedPokemons', JSON.stringify(likes));
     }
   }
 
@@ -52,7 +58,7 @@ export class CardListComponent {
   }
 
   getListPokemons(){
-    this.service.getPokemon().subscribe((response: any)=>{
+    this.service.getPokemons().subscribe((response: any)=>{
       response.results.forEach((result: any)=>{
         this.service.getDetalhes(result.name).subscribe((pokemon:any)=>{
           this.pokemons.push(pokemon);

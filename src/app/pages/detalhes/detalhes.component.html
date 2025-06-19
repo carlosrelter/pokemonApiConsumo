@@ -1,0 +1,22 @@
+<div class="card-container">
+  <mat-card>
+      <mat-card-header>
+          <mat-card-title>{{pokemon.name}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <img mat-card-image class="card-image" [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/' + pokemon.id + '.svg'" alt={{pokemon.name}}>
+        <p><b>Type:</b> {{pokemon.types[0].type.name}}</p>
+        <p><b>HP:</b> {{pokemon.stats[0].base_stat}}</p>
+        <p><b>Atack:</b> {{pokemon.stats[1].base_stat}}</p>
+        <p><b>Defense:</b> {{pokemon.stats[2].base_stat}}</p>
+        <p><b>Special Atack:</b> {{pokemon.stats[3].base_stat}}</p>
+        <p><b>Special Defense:</b> {{pokemon.stats[4].base_stat}}</p>
+        <p><b>Speed:</b> {{pokemon.stats[5].base_stat}}</p>
+
+      </mat-card-content>
+      <mat-card-actions align="end">
+          <button mat-raised-button (click)="retorna()" >Retornar</button>
+      </mat-card-actions>
+  </mat-card>
+</div>
+
