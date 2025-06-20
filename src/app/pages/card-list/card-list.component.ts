@@ -46,9 +46,6 @@ export class CardListComponent {
 
     console.log(this.incrementa)
     this.showButton = scrollY >   this.incrementa;
-;
-
-
 
     if(!this.showButton == false ){
       this.nextList();
