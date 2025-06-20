@@ -6,19 +6,24 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { LayoutModule, BreakpointObserver } from '@angular/cdk/layout';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-card-list',
   imports: [ MatCardModule, MatButtonModule, MatGridListModule, LayoutModule, MatButtonModule,
-    MatIconModule
+    MatIconModule, MatPaginatorModule
   ],
   templateUrl: './card-list.component.html',
   styleUrl: './card-list.component.css'
 })
 export class CardListComponent {
 
+  showButton = false;
   pokemons:any[]=[];
   cols:number = 3;
+  atual= 0;
+  next:number=0;
+  incrementa=300;
 
   constructor(
     private service: PokemonService,
@@ -32,7 +37,23 @@ export class CardListComponent {
   }
 
   ngOnInit():void{
-    this.getListPokemons();
+    this.getListPokemons(this.next);
+    window.addEventListener('scroll', this.onScroll.bind(this));
+  }
+
+  onScroll() {
+    const scrollY = window.scrollY || document.documentElement.scrollTop;
+
+    console.log(this.incrementa)
+    this.showButton = scrollY >   this.incrementa;
+;
+
+
+
+    if(!this.showButton == false ){
+      this.nextList();
+      this.incrementa = this.incrementa+300;
+    }
   }
 
   detalhe(name:string){
@@ -49,6 +70,7 @@ export class CardListComponent {
       let index = likes.indexOf(pokemonId);
       console.log(index);
       likes.splice(index, 1);
+      localStorage.setItem('likedPokemons', JSON.stringify(likes));
     }
   }
 
@@ -57,15 +79,22 @@ export class CardListComponent {
     return likes.includes(pokemonId);
   }
 
-  getListPokemons(){
-    this.service.getPokemons().subscribe((response: any)=>{
+  getListPokemons(next:number){
+    this.service.getPokemons(next).subscribe((response: any)=>{
       response.results.forEach((result: any)=>{
         this.service.getDetalhes(result.name).subscribe((pokemon:any)=>{
           this.pokemons.push(pokemon);
         })
       })
-      console.log(this.pokemons);
     })
   }
+
+  nextList(){
+    this.atual = this.atual +16;
+    console.log(this.atual)
+    this.getListPokemons(this.atual);
+  }
+
+  preview(){}
 
 }

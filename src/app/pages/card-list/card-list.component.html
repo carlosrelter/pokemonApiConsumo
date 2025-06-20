@@ -1,28 +1,35 @@
- <mat-grid-list [cols]="cols" rowHeight="250px" gutterSize="16px">
-   @for(pokemon of pokemons; track pokemon){
-    <mat-grid-tile>
-      <mat-card class="example-card" appearance="outlined">
-        <mat-card-header>
-          <mat-card-title>{{pokemon.name}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <img mat-card-image [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + pokemon.id + '.png'" alt={{pokemon.name}}>
-        </mat-card-content>
-        <mat-card-actions  align="end">
-          <div class="actions">
-            <button mat-fab (click)="like(pokemon.id)" >
-              @if(isLiked(pokemon.id) ==true){
-                <mat-icon class="like">favorite</mat-icon>
-              }@else {
-                <mat-icon class="normal">favorite</mat-icon>
-              }
-              </button>
-          </div>
-          <button mat-fab (click)="detalhe(pokemon.name)" ><mat-icon>visibility</mat-icon></button>
-        </mat-card-actions>
-      </mat-card>
-    </mat-grid-tile>
-   }
- </mat-grid-list>
+ <mat-card class="big-card">
+   <mat-grid-list [cols]="cols" rowHeight="250px" gutterSize="16px">
+     @for(pokemon of pokemons;  track pokemon){
+      <mat-grid-tile>
+        <mat-card class="example-card" appearance="outlined">
+          <mat-card-header>
+            <mat-card-title>{{pokemon.name}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <img mat-card-image
+            [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + pokemon.id + '.png'"
+            width="96"
+            height="96"
+            [alt]="pokemon.name">
+          </mat-card-content>
+          <mat-card-actions  align="end">
+            <div class="actions">
+              <button mat-fab (click)="like(pokemon.id)" >
+                @if(isLiked(pokemon.id) ==true){
+                  <mat-icon class="like">favorite</mat-icon>
+                }@else {
+                  <mat-icon class="normal">favorite</mat-icon>
+                }
+                </button>
+            </div>
+            <button mat-fab (click)="detalhe(pokemon.name)" ><mat-icon>visibility</mat-icon></button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+     }
+   </mat-grid-list>
+ </mat-card>
+
 
 
