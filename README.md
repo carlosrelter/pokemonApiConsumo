@@ -2,58 +2,30 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
 
-## Development server
+## Primeira parte
 
-To start a local development server, run:
+Comecei criando o projeto com ideia de trazer todos os pokemons e joga-los para paginação do angular angular material.
 
-```bash
-ng serve
-```
+## Segunda parte
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Defini os cards  e seus ajustes.
 
-## Code scaffolding
+## Terceira parte
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Foi preciso fazer uma pesquisa de como usar o localStorage, pois não tinha ideia de como acrescentar favoristos aos pokemons. Optei pelo uso do localStorage apenas local, já que por se tratar de uma API de terceiros eu não teria como alterar.
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Quarta parte
 
-```bash
-ng generate --help
-```
+Parte de datalhar o pokemon eu pretendia criar um modal, porém a descrição da demanda foi clara ao pedir uma pagina paara detalhes com 6 atributos.
 
-## Building
+## Quinta parte
 
-To build the project run:
+Observei a aplicação com performance ruim devido a tentar puxar os pokemons de uma vez, nessa parte eu normalmente aplicaria paginação, porém quis aplicar uma lógica pra criar um scroll infinito, tentando deixar a aplicação com toque moderno
 
 ```bash
-ng build
+obs.: tentei commmitar por partes conforme fui aprimorando a aplicação, nunca usei Ionic então usei apenas o angular, durante o projeto mudei várias vezes de opinão a melhor abordagem. Optei por usar o angular material como parte do processo.
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+![Pokemon - Google Chrome 2025-06-20 21-52-15 (2)](https://github.com/user-attachments/assets/a2ff84b3-4c60-4d6d-b3c1-ebe6ee04457b)
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
