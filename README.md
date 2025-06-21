@@ -12,7 +12,7 @@ Defini os cards  e seus ajustes.
 
 ## Terceira parte
 
-Foi preciso fazer uma pesquisa de como usar o localStorage, pois não tinha ideia de como acrescentar favoristos aos pokemons. Optei pelo uso do localStorage apenas local, já que por se tratar de uma API de terceiros eu não teria como alterar.
+Foi preciso fazer uma pesquisa de como usar o localStorage, pois não tinha ideia de como acrescentar favoritos aos pokemons. Optei pelo uso do localStorage, já que por se tratar de uma API de terceiros eu não teria como alterar.
 
 
 ## Quarta parte
